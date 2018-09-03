@@ -9,8 +9,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserModel findUserById(int userId) {
-
-        return null;
+    public UserModel findUserById(long userId) {
+        return new UserModel(userId, "name..", "pwd....");
     }
 }

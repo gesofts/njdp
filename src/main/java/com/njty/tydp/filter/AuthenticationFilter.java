@@ -1,5 +1,11 @@
 package com.njty.tydp.filter;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.njty.tydp.authenticator.impl.AuthenticateChain;
+import com.njty.tydp.authenticator.impl.LocalAuthenticator;
+import com.njty.tydp.model.MsgModel;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
@@ -7,6 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @Order(1)
@@ -27,7 +34,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         response.setCharacterEncoding("UTF-8");
-
+        response.setContentType("text/html;charset=utf-8");
         //跨域设置
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         //这里填写你允许进行跨域的主机ip
@@ -47,11 +54,13 @@ public class AuthenticationFilter implements Filter {
         System.out.println("-token--------------------------------------------------" + httpRequest.getHeader("token"));
         System.out.println("-getParameter--------------------------------------------------" +  httpRequest.getParameter("token"));
         if (requestPath.startsWith("/dangerZoneSpeed/getList")
-                || requestPath.startsWith("/webjars")
-                || requestPath.startsWith("/api")
-                || requestPath.startsWith("/swagger-ui.html")
-                || requestPath.startsWith("/swagger-resources")
-                || requestPath.startsWith("/v2/api-docs"))
+                || requestPath.contains("/webjars")
+                || requestPath.contains("/api")
+                || requestPath.contains("/test/list")
+                || requestPath.startsWith("/favicon")
+                || requestPath.contains("/swagger-ui.html")
+                || requestPath.contains("/swagger-resources")
+                || requestPath.contains("/v2/api-docs"))
         {
 
             System.out.println("---------------------------------------------------");
@@ -61,7 +70,7 @@ public class AuthenticationFilter implements Filter {
             //认证
             String token = httpRequest.getHeader("token");
             System.out.println(">>>>>>>>>>>>>>>>>>从 Header 获取 Token:" + token);
-            /*if(StringUtils.isBlank(token)){
+           if(StringUtils.isBlank(token)){
                 token = httpRequest.getParameter("token");
                 System.out.println(">>>>>>>>>>>>>>>>>>从 Request 获取 Token:" + token);
             }
@@ -70,23 +79,22 @@ public class AuthenticationFilter implements Filter {
             System.out.println(">>>>>>>>>>>>>>>>>>最终 获取 Token:" + token);
 
             AuthenticateChain authenticateChain = new AuthenticateChain();
-            authenticateChain.addAuthenticator(new LocalAuthenticator())
-                    .addAuthenticator(new OauthAuthenticator());
+            authenticateChain.addAuthenticator(new LocalAuthenticator());
+                   // .addAuthenticator(new OauthAuthenticator());
 
-            JsonRet<Object> jsonRet = authenticateChain.authenticate(token);
-            boolean isAuthenticated = jsonRet.isSuccess();
+            MsgModel msgModel = authenticateChain.authenticate(token);
+            boolean isAuthenticated = msgModel.isSuccess();
 
             if(!isAuthenticated){
                 PrintWriter out = response.getWriter();
-                out.print(JSON.toJSONString(jsonRet,SerializerFeature.WriteMapNullValue));
+                out.print(JSON.toJSONString(msgModel, SerializerFeature.WriteMapNullValue));
 
                 out.flush();
                 out.close();
             }else{
                 chain.doFilter(request,response);
             }
-*/
-            chain.doFilter(request,response);
+
         }else{
             chain.doFilter(request,response);
         }

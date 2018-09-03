@@ -3,4 +3,19 @@
 server:
   port: 16722
   servlet:
-    path: /xyl
+    path: /njdp
+
+# default db config
+
+## Mybatis 配置
+mybatis:
+  typeAliasesPackage: com.njty.tydp.mapper
+  mapperLocations: classpath*:sqlMap/**/*Mapper.xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://112.11.223.225:33517/xyl?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    data-username: root
+    data-password: uAiqwVwjJ8-i
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource

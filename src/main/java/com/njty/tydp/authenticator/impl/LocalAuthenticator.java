@@ -1,24 +1,14 @@
 package com.njty.tydp.authenticator.impl;
 
 import com.njty.tydp.authenticator.Authenticator;
-import com.njty.tydp.commom.ApplicationContextUtil;
+import com.njty.tydp.utils.ApplicationContextUtil;
 import com.njty.tydp.commom.ErrCode;
+import com.njty.tydp.commom.Subject;
 import com.njty.tydp.model.MsgModel;
 import com.njty.tydp.model.UserModel;
 import com.njty.tydp.service.UserService;
 import com.njty.tydp.utils.DigestUtil;
-import com.xingyi.logistic.authentication.authenticator.Authenticator;
-import com.xingyi.logistic.authentication.model.LocalAuth;
-import com.xingyi.logistic.authentication.model.UserProfile;
-import com.xingyi.logistic.authentication.security.Subject;
-import com.xingyi.logistic.authentication.security.User;
-import com.xingyi.logistic.authentication.service.LocalAuthService;
-import com.xingyi.logistic.authentication.service.UserProfileService;
-import com.xingyi.logistic.authentication.util.ApplicationContextUtil;
-import com.xingyi.logistic.authentication.util.DigestUtil;
-import com.xingyi.logistic.authentication.util.SessionUtil;
-import com.xingyi.logistic.common.bean.ErrCode;
-import com.xingyi.logistic.common.bean.JsonRet;
+import com.njty.tydp.utils.SessionUtil;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -52,16 +42,13 @@ public class LocalAuthenticator implements Authenticator {
 			return msgModel;
 		}
 
-		this.bindUserToSession(userId);
+		this.bindUserToSession(mUserModel);
 
 		return MsgModel.getSuccessRet(null);
 	}
 
-	private void bindUserToSession(Long userId) {
-		JsonRet<UserProfile> profileJsonRet = this.userProfileService.getById(userId);
-		UserProfile profile = profileJsonRet.getData();
-		User user = new User(profile);
-		Subject subject = new Subject(user, true);
+	private void bindUserToSession(UserModel userModel) {
+		Subject subject = new Subject(userModel, true);
 		SessionUtil.setSubject(subject);
 	}
 }

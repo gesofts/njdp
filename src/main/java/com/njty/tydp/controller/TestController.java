@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/test")
@@ -19,5 +20,10 @@ public class TestController {
     @RequestMapping("/list")
     public List<TestModel> findAll() {
         return  testService.findTestAll();
+    }
+
+    @RequestMapping("/list2")
+    public List<Map<String, Object>> findTestInfo() {
+        return  testService.findTestInfo();
     }
 }

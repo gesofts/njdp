@@ -28,9 +28,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("兴一物流 APIs")
-                .description("以下API根据默认配置生成，相关API及字段缺乏开发者的说明。如果在使用中有疑义，请联系服务端开发补全相关说明。补全时参考文档：http://springfox.github.io/springfox/docs/current/")
-                .contact(new Contact("兴一物流", "", "xywl@163.com"))
+                .title("市民卡大屏 APIs")
+                .description("以下API根据默认配置生成，相关API及字段缺乏开发者的说明。如果在使用中有疑义，请联系服务端开发补全相关说明。补全时参考文档：https://github.com/gesofts/njdp.git")
+                .contact(new Contact("市民卡大屏", "", "250058349.com"))
                 .version("1.0")
                 .build();
     }

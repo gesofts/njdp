@@ -1,4 +1,4 @@
-package com.njty.tydp.commom;
+package com.njty.tydp.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

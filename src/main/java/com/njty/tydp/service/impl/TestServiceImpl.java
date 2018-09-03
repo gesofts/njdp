@@ -1,15 +1,21 @@
 package com.njty.tydp.service.impl;
 
+import com.njty.tydp.mapper.TestDao;
 import com.njty.tydp.model.TestModel;
 import com.njty.tydp.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class TestServiceImpl implements TestService {
 
+
+    @Autowired
+    private TestDao testDao;
 
     @Override
     public List<TestModel> findTestAll() {
@@ -21,4 +27,9 @@ public class TestServiceImpl implements TestService {
 
         return list;
     }
+
+    public List<Map<String, Object>> findTestInfo(){
+        return testDao.findTestInfo();
+    }
+
 }

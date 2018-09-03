@@ -1,0 +1,14 @@
+# default db config
+druid:
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      mapperLocations: classpath*:sqlMap/**/*Mapper.xml
+      url: jdbc:mysql://112.11.223.225:33517/xyl?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: uAiqwVwjJ8-i
+      initialSize: 5
+      filters: stat
+      maxActive: 8
+      minIdle: 5
+      maxWait: 50000
+      validationQuery: SELECT 1
