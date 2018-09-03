@@ -8,6 +8,6 @@ import java.util.Map;
 /**
  * Created by WCL on 2018/9/3.
  */
-public interface TestDao {
+public interface TestMapper {
     public List<Map<String, Object>> findTestInfo();
 }

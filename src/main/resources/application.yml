@@ -9,7 +9,7 @@ server:
 
 ## Mybatis 配置typeAliasesPackage: com.njty.tydp.mapper
 mybatis:
-  mapperLocations: classpath*:sqlMap/**/*Mapper.xml
+  mapperLocations: classpath*:sqlMap/*Mapper.xml
 
 spring:
   datasource:
