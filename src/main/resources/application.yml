@@ -1,0 +1,6 @@
+
+# You can change the default http port
+server:
+  port: 16722
+  servlet:
+    path: /xyl
