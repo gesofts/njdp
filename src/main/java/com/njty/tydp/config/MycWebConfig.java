@@ -1,4 +1,4 @@
-package com.njty.tydp;
+package com.njty.tydp.config;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;

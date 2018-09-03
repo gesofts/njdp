@@ -1,6 +1,6 @@
 package com.njty.tydp;
 
-import org.mybatis.spring.annotation.MapperScan;
+import com.njty.tydp.config.MycWebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -10,7 +10,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.web.context.WebApplicationContext;
 
 @SpringBootApplication
-@MapperScan("com.njty.tydp.mapper")
 public class TydpApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
@@ -28,4 +27,5 @@ public class TydpApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(MycWebConfig.class);
 	}
+
 }

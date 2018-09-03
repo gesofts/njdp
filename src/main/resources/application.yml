@@ -7,9 +7,8 @@ server:
 
 # default db config
 
-## Mybatis 配置
+## Mybatis 配置typeAliasesPackage: com.njty.tydp.mapper
 mybatis:
-  typeAliasesPackage: com.njty.tydp.mapper
   mapperLocations: classpath*:sqlMap/**/*Mapper.xml
 
 spring:
