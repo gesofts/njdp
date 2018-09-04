@@ -5,6 +5,6 @@
 
     <select id="findTestInfo"  resultType="Map">
         SELECT *
-        FROM Test
+        FROM Tab_users
     </select>
 </mapper>

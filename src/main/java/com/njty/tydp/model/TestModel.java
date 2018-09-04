@@ -2,7 +2,6 @@ package com.njty.tydp.model;
 
 import com.njty.tydp.commom.BaseModel;
 
-
 public class TestModel extends BaseModel{
 
     public TestModel(String name) {
