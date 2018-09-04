@@ -1,4 +1,4 @@
-package com.njty.tydp.config;
+package com.njty.tydp;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -31,7 +31,7 @@ public class MybatisConfig {
 
     //DataSource配置
     @Bean
-
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().type(dataSourceType).build();
     }

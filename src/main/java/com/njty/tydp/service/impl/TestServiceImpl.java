@@ -29,7 +29,8 @@ public class TestServiceImpl implements TestService {
     }
 
     public List<Map<String, Object>> findTestInfo(){
-        return testMapper.findTestInfo();
+        List<Map<String, Object>> list = testMapper.findTestInfo();
+        return list;
     }
 
 }

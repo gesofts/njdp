@@ -8,13 +8,17 @@ server:
 # default db config
 
 ## Mybatis 配置typeAliasesPackage: com.njty.tydp.mapper
-mybatis:
-  mapperLocations: classpath*:sqlMap/*Mapper.xml
 
 spring:
   datasource:
-    url: jdbc:mysql://112.11.223.225:33517/xyl?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/xyl?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&useSSL=false
     data-username: root
-    data-password: uAiqwVwjJ8-i
+    data-password: _Jf0<aY->Aos
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+
+#mybatis
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.njty.tydp.mapper
+
