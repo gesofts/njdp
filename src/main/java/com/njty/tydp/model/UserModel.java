@@ -8,6 +8,10 @@ public class UserModel extends BaseModel {
     private String loginName;
     private String password;
 
+    public UserModel() {
+
+    }
+
     public UserModel(long userId) {
         this.userId = userId;
     }

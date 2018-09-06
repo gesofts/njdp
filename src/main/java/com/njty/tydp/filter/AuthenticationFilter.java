@@ -57,6 +57,7 @@ public class AuthenticationFilter implements Filter {
                 || requestPath.contains("/webjars")
                 || requestPath.contains("/api")
                 || requestPath.contains("/test/list")
+                || requestPath.contains("/login")
                 || requestPath.startsWith("/favicon")
                 || requestPath.contains("/swagger-ui.html")
                 || requestPath.contains("/swagger-resources")
