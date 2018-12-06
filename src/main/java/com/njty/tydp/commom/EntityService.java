@@ -12,7 +12,6 @@ package com.njty.tydp.commom;
 
 import com.njty.tydp.model.MsgModel;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +29,8 @@ public interface EntityService {
     public int modify(Map<String, Object> map);
 
     public int delete(Map<String, Object> map);
+
+    public Map<String, Object> findOne(Map<String, Object> map);
 
     public MsgModel findList(Map<String, Object> map);
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -83,6 +84,27 @@ public abstract class EntityController {
         return msgModel;
     }
 
+
+    /**
+     * 查询
+     * @param map
+     * @return
+     */
+    @RequestMapping("/findOne")
+    public MsgModel findOne(@RequestParam Map<String,Object> map) {
+        MsgModel msgModel = new MsgModel();
+        try{
+            Map<String,Object> mRetMap = getEntityService().findOne(map);
+            if (mRetMap != null){
+                msgModel.setSuccessData(mRetMap);
+            }
+        }catch (Exception e){
+            logger.info("EntityController findList error :{}", e);
+        }
+        return msgModel;
+    }
+
+
     /**
      * 查询
      * @param map
@@ -98,6 +120,8 @@ public abstract class EntityController {
         }
         return msgModel;
     }
+
+
 
     public abstract EntityService getEntityService();
 

@@ -37,6 +37,10 @@ public abstract class EntityServiceImpl {
         return  getEntityMapper().delete(map);
     }
 
+    public Map<String, Object> findOne(Map<String, Object> map){
+        return  getEntityMapper().findOne(map);
+    }
+
     public MsgModel findList(Map<String, Object> map) {
         MsgModel msgModel = new MsgModel();
         msgModel.setTotal(getEntityMapper().findListCnt(map));

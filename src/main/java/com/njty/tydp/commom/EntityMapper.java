@@ -32,5 +32,7 @@ public interface EntityMapper {
 
     public int findListCnt(Map<String, Object> map);
 
+    public Map<String, Object> findOne(Map<String, Object> map);
+
     public List<Map<String, Object>> findList(Map<String, Object> map);
 }
