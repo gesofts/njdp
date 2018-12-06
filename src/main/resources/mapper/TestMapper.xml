@@ -12,4 +12,18 @@
 
         insert INTO  tab_users(loginName) values(#{loginName})
     </insert>
+
+
+    <update id="modify">
+      UPDATE  tab_users
+      SET
+      loginName = #{loginName}
+      WHERE  id = #{id}
+    </update>
+
+
+    <delete id="delete">
+        DELETE FROM tab_users
+        WHERE id = #{id}
+    </delete>
 </mapper>

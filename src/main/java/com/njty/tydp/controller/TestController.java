@@ -1,5 +1,7 @@
 package com.njty.tydp.controller;
 
+import com.njty.tydp.commom.EntityController;
+import com.njty.tydp.commom.EntityService;
 import com.njty.tydp.model.MsgModel;
 import com.njty.tydp.model.TestModel;
 import com.njty.tydp.service.TestService;
@@ -16,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class TestController extends EntityController {
 
     protected static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
@@ -34,13 +36,11 @@ public class TestController {
         return  testService.findTestInfo();
     }
 
-    @RequestMapping("/add")
-    public MsgModel add(@RequestParam Map<String,Object> map) {
-        MsgModel msgModel = new MsgModel();
-        msgModel.setData(testService.add(map));
-        return msgModel;
-    }
 
+    @Override
+    public EntityService getEntityService() {
+        return this.testService;
+    }
 
 
 }

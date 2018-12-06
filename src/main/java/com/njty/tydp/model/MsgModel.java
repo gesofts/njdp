@@ -5,9 +5,9 @@ import com.njty.tydp.commom.ErrCode;
 import java.io.Serializable;
 
 public class MsgModel implements Serializable{
-    private String msg;
+    private String msg = "操作失败";
     private int code;
-    private boolean success;
+    private boolean success = false;
     private int total;
     private Object data;
 
@@ -83,6 +83,7 @@ public class MsgModel implements Serializable{
     }
 
     public void setSuccessData(Object data) {
+        this.msg = "操作成功";
         this.data = data;
         this.success = true;
 
