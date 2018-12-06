@@ -2,7 +2,6 @@ package com.njty.tydp.model;
 
 import com.njty.tydp.commom.ErrCode;
 
-import javax.swing.table.TableStringConverter;
 import java.io.Serializable;
 
 public class MsgModel implements Serializable{

@@ -109,23 +109,20 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/ojdbc/ojdbc -->
 		<!--<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
-		</dependency>-->
+		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
+
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.3.0</version>
-		</dependency>
-
-
-
-
+		</dependency>-->
 
 	</dependencies>
 

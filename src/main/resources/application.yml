@@ -1,7 +1,7 @@
 
 # You can change the default http port
 server:
-  port: 16722
+  port: 8080
   servlet:
     path: /njdp
 
@@ -11,19 +11,18 @@ server:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@58.213.107.82:1521:orcl
-    username: buspos
-    password: njtynjty
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:mysql://47.110.88.109:3306/cz_car?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: gesoft123!@#
+    driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
-
-
-    #url: jdbc:mysql://127.0.0.1:3306/xyl?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    #data-username: root
-    #data-password: _Jf0<aY->Aos
-    #driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:oracle:thin:@58.213.107.82:1521:orcl
+    #username: buspos
+    #password: njtynjty
+    #driver-class-name: oracle.jdbc.driver.OracleDriver
     #type: com.alibaba.druid.pool.DruidDataSource
+
 
 #配置日志
 logging:

@@ -1,5 +1,7 @@
 package com.njty.tydp.service.impl;
 
+import com.njty.tydp.commom.EntityMapper;
+import com.njty.tydp.commom.EntityServiceImpl;
 import com.njty.tydp.mapper.TestMapper;
 import com.njty.tydp.model.TestModel;
 import com.njty.tydp.service.TestService;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class TestServiceImpl implements TestService {
+public class TestServiceImpl extends EntityServiceImpl implements TestService {
 
 
     @Autowired
@@ -33,4 +35,9 @@ public class TestServiceImpl implements TestService {
         return list;
     }
 
+
+    @Override
+    public EntityMapper getEntityMapper() {
+        return this.testMapper;
+    }
 }

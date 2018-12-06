@@ -5,6 +5,11 @@
 
     <select id="findTestInfo"  resultType="Map">
         SELECT *
-        FROM Tab_users
+        FROM tab_users
     </select>
+
+    <insert id="add">
+
+        insert INTO  tab_users(loginName) values(#{loginName})
+    </insert>
 </mapper>
