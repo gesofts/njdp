@@ -30,5 +30,17 @@
     <select id="findOne" parameterType="Map" resultType="Map">
         SELECT * FROM tab_users
         WHERE id = #{id}
+        LIMIT 1
     </select>
+
+
+    <select id="findListCnt" parameterType="Map" resultType="java.lang.Integer">
+        SELECT count(1) AS  cnt FROM tab_users
+    </select>
+
+    <select id="findList" parameterType="Map" resultType="Map">
+        SELECT *  FROM tab_users
+        LIMIT ${startNum}, ${pageSize}
+    </select>
+
 </mapper>

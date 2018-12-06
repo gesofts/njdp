@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -112,6 +113,13 @@ public abstract class EntityController {
      */
     @RequestMapping("/findList")
     public MsgModel findList(@RequestParam Map<String,Object> map) {
+
+        Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator();
+        while (it.hasNext()){
+            Map.Entry<String, Object> en = it.next();
+            System.out.println(en.getKey() + "------" + en.getValue());
+        }
+
         MsgModel msgModel = new MsgModel();
         try{
             msgModel = getEntityService().findList(map);

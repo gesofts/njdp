@@ -43,10 +43,28 @@ public abstract class EntityServiceImpl {
 
     public MsgModel findList(Map<String, Object> map) {
         MsgModel msgModel = new MsgModel();
-        msgModel.setTotal(getEntityMapper().findListCnt(map));
-        msgModel.setData(getEntityMapper().findList(map));
+        int count = getEntityMapper().findListCnt(map);
+        msgModel.setTotal(count);
+
+        if (count > 0){
+            setPageStartNum(map);
+            List<Map<String, Object>> argFlys = getEntityMapper().findList(map);
+            if (argFlys != null && argFlys.size() > 0) {
+                msgModel.setSuccessData(argFlys);
+            }
+        }
+
         return msgModel;
     }
 
+    protected void setPageStartNum(Map<String, Object> map) {
+        int startNum = Integer.parseInt(map.get("pageIndex").toString()) *
+                Integer.parseInt(map.get("pageSize").toString());
+        map.put("startNum", startNum);
+    }
+
+
     public abstract EntityMapper getEntityMapper();
 }
+
+
